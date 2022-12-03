@@ -121,9 +121,22 @@
   - 함수(또는 메서드)가 한 가지 일만 잘하도록 구현한다.
 - 메서드의 파라미터 개수는 최대 3개까지만 허용한다.
 
+### 성록, 상현의 요구사항
+
+- 도메인에 대한 단위테스트를 먼저 작성 한후 프로그램을 구현한다.(TDD)
+- 커밋 전에 IDE의 코드 자동 정렬 기능을 활용한다. **(중요)**
+  - IntelliJ IDEA: `mac - ⌥⌘L`, `windows - Ctrl+Alt+L`
+- Domain과 View로 나누어 서로의 역할을 침범하지 않게 한다.
+  - Domain은 도메인의 역할만 할뿐 사용자에게 표시해주는 역할을 하지 않는다.
+- Boolean 타입을 리턴하는 경우 if문을 쓰지않고 return 다음 조건문만 사용한다.
+  - 예: return (a > b)
+  - a가 b보다 크다면 true를 리턴 아니라면 false를 리턴
+- 문자열 연산이 많을 때는 `StringBuilder` 를 사용하도록 한다.
+  - 때로는 $ 나 + 연산자를 사용하는 것이 더 깔끔해 보일 수 있다. 어느 경우에 쓰는 것이 적절한지 스스로 고민해 본다.
+  
 ### 프로그래밍 요구사항 - Coin
 
-- Coin 클래스를 활용해 구현해야 한다.
+- Coin `enum class`를 활용해 구현해야 한다.
 - 필드(인스턴스 변수)인 `amount`의 접근 제어자 private을 변경할 수 없다.
 
 ```kotlin
@@ -152,3 +165,4 @@ enum class Coin(private val amount: Int) {
 - **Git의 커밋 단위는 앞 단계에서 `docs/README.md`에 정리한 기능 목록 단위**로 추가한다.
   - [커밋 메시지 컨벤션](https://gist.github.com/stephenparish/9941e89d80e2bc58a153) 가이드를 참고해 커밋 메시지를 작성한다.
 - 과제 진행 및 제출 방법은 [프리코스 과제 제출](https://github.com/woowacourse/woowacourse-docs/tree/master/precourse) 문서를 참고한다.
+- **과제의 원본을 확인하고 싶으면 [여기](https://github.com/woowacourse/java-vendingmachine-precourse)에서 확인한다.**
