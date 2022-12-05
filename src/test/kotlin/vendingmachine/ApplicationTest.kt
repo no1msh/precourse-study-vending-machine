@@ -46,6 +46,7 @@ class ApplicationTest : NsTest() {
                 val coins = CoinList()
                 coins.settingCoins(1150)
                 mutableListOf(2, 1, 1, 0).equals(coins.getCoins())
+                //수정필요
 
             }, 500, 100, 500, 50
         )
@@ -67,6 +68,7 @@ class ApplicationTest : NsTest() {
         assertSimpleTest {
             command("[콜라,1500,20];[사이다,1000,10]")
             InputView().getItems().equals(listOf(listOf("콜라", "1500", "20"), listOf("사이다", "1000", "10")))
+            //수정필요
         }
 
     }
