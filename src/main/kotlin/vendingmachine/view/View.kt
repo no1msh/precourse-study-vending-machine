@@ -20,4 +20,6 @@ class View {
         OutputView().getMyMoney()
         return InputView().getMyMoney()
     }
+
+
 }

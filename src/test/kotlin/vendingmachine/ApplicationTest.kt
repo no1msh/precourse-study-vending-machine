@@ -6,12 +6,14 @@ import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import vendingmachine.model.CoinList
+import vendingmachine.view.InputView
 import vendingmachine.view.View
+import java.io.ByteArrayInputStream
 
 class ApplicationTest : NsTest() {
 
     @Test
-    fun 기능_테스트() {
+    fun `기능_테스트`() {
         assertRandomNumberInListTest(
             {
                 run("450", "[콜라,1500,20];[사이다,1000,10]", "3000", "콜라", "사이다")
@@ -25,7 +27,7 @@ class ApplicationTest : NsTest() {
     }
 
     @Test
-    fun 예외_테스트() {
+    fun `예외_테스트`() {
         assertSimpleTest {
             runException("-1")
             assertThat(output()).contains(ERROR_MESSAGE)
@@ -43,7 +45,7 @@ class ApplicationTest : NsTest() {
             {
                 val coins = CoinList()
                 coins.settingCoins(1150)
-                equals(mutableListOf(2, 1, 1, 0) == coins.getCoins())
+                mutableListOf(2, 1, 1, 0).equals(coins.getCoins())
 
             }, 500, 100, 500, 50
         )
@@ -60,6 +62,20 @@ class ApplicationTest : NsTest() {
         }
     }
 
+    @Test
+    fun `아이템 입력에 관한 테스트`() {
+        assertSimpleTest {
+            command("[콜라,1500,20];[사이다,1000,10]")
+            InputView().getItems().equals(listOf(listOf("콜라", "1500", "20"), listOf("사이다", "1000", "10")))
+        }
+
+    }
+
+
+    private fun command(vararg args: String) {
+        val buf = java.lang.String.join("\n", *args).toByteArray()
+        System.setIn(ByteArrayInputStream(buf))
+    }
 
     companion object {
         private const val ERROR_MESSAGE = "[ERROR]"
