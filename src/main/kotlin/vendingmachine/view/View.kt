@@ -1,7 +1,5 @@
 package vendingmachine.view
 
-import kotlin.text.StringBuilder
-
 class View {
 
     fun giveMeCoin(): Int {
@@ -10,8 +8,7 @@ class View {
     }
 
     fun showChanges(coins: MutableList<Int>) {
-        var str = StringBuilder()
-
+        OutputView().showChanges(coins)
     }
 
 }
