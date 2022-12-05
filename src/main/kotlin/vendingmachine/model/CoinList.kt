@@ -8,7 +8,7 @@ class CoinList {
     private val coins = mutableListOf<Int>(0, 0, 0, 0)
 
     fun settingCoins(money: Int) {
-        var pair = Pair<Int, Boolean>(money, false)
+        var pair = Pair(money, false)
         while (!pair.second) {
             pair = coinSetting(pair)
         }
