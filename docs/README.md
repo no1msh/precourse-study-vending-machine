@@ -46,8 +46,8 @@
 
 ## 6. 사용할 클래스들의 기능
 
-> VendingManager : 전체적인 흐름을 담당. Domain
-> CoinList : 잔돈에 대한 기록. Model
-> InputView : 입력에 대한 담당. View
-> OutputView : 출력에 대한 담당 View
+> VendingManager : 전체적인 흐름을 담당. Domain<p>
+> CoinList : 잔돈에 대한 기록. Model<p>
+> InputView : 입력에 대한 담당. View<p>
+> OutputView : 출력에 대한 담당 View<p>
 > Coin : 기본적인 enum class
