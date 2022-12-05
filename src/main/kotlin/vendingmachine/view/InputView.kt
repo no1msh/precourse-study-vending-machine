@@ -28,7 +28,33 @@ class InputView {
     }
 
     fun getItems(): List<List<String>> {
-        
+        lateinit var result: List<List<String>>
+        while (true) {
+            try {
+                result = itemGet()
+                break
+            } catch (error: IllegalArgumentException) {
+                println(error.message)
+            }
+        }
+        return result
+    }
+
+    private fun itemGet(): List<List<String>> {
+        var getString = Console.readLine()
+        getString = getString.replace("[", "")
+        getString = getString.replace("]", "")
+        return divideString(getString)
+    }
+
+    private fun divideString(getString: String): List<List<String>> {
+        val result = mutableListOf<List<String>>()
+        val middle = getString.split(";")
+        for (count in middle) {
+            result.add(count.split(","))
+            VendingException().itemException(result.last())
+        }
+        return result
     }
 
 }
