@@ -1,4 +1,4 @@
-package vendingmachine.view;
+package vendingmachine.view
 
 class View {
 

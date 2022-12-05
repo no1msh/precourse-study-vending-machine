@@ -1,4 +1,4 @@
-package vendingmachine;
+package vendingmachine
 
 class VendingTest {
 
