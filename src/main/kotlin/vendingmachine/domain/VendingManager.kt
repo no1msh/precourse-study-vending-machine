@@ -14,7 +14,7 @@ class VendingManager {
     }
 
     private fun getMoney() {
-        View()
+        View().giveMeCoin()
 
     }
 
