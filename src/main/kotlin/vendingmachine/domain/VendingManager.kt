@@ -12,19 +12,19 @@ class VendingManager {
         giveChange()
     }
 
-    fun getMoney() {
+    private fun getMoney() {
 
     }
 
-    fun getItems() {
+    private fun getItems() {
 
     }
 
-    fun doShoping() {
+    private fun doShoping() {
 
     }
 
-    fun giveChange() {
+    private fun giveChange() {
 
     }
 }
