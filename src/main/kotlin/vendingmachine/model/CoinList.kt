@@ -1,4 +1,4 @@
 package vendingmachine.model;
 
-public class CoinList {
+class CoinList {
 }

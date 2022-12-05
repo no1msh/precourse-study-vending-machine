@@ -1,6 +1,6 @@
 package vendingmachine.view;
 
-public class View {
+class View {
 
     fun giveMeCoin(){
 

@@ -1,6 +1,6 @@
 package vendingmachine;
 
-public class VendingTest {
+class VendingTest {
 
 
 }
