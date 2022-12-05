@@ -1,5 +1,7 @@
 package vendingmachine
 
+import vendingmachine.domain.VendingManager
+
 fun main() {
-    TODO("프로그램 구현")
+    VendingManager().start()
 }
