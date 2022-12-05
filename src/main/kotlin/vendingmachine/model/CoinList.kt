@@ -1,6 +1,7 @@
 package vendingmachine.model;
 
 import camp.nextstep.edu.missionutils.Randoms
+import vendingmachine.Coin
 
 
 class CoinList {
@@ -17,7 +18,7 @@ class CoinList {
     fun getCoins(): MutableList<Int> = coins
 
     private fun coinSetting(pair: Pair<Int, Boolean>): Pair<Int, Boolean> {
-        val random = Randoms.pickNumberInList(listOf(500, 100, 50, 10))
+        val random = Randoms.pickNumberInList(listOf(Coin.COIN_10.money(),Coin.COIN_50.money(),Coin.COIN_100.money(),Coin.COIN_500.money()))
         if (random > pair.first)
             return pair
         if (random == pair.first) {
