@@ -16,10 +16,15 @@ class OutputView {
         string.appendLine(VENDING_MACHINE_HAVE)
         for (count in Coin.values()) {
             string.append(count.toString())
-            string.append(coins[count.ordinal])
-            string.appendLine("개")
+            string.appendLine(changesCount(coins[count.ordinal]))
         }
         println(string)
+    }
+
+    private fun changesCount(count:Int):String{
+        var string =" - "
+        string+=count
+        return string+"개"
     }
 
 }
