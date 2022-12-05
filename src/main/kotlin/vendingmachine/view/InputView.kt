@@ -58,4 +58,22 @@ class InputView {
         return result
     }
 
+    fun getMyMoney(): Int {
+        while (true) {
+            try {
+                val money = Console.readLine()
+                return moneyErrorCheck(money)
+            } catch (error: IllegalArgumentException) {
+                println(error.message)
+            }
+        }
+    }
+
+    private fun moneyErrorCheck(money: String): Int {
+        VendingException().isItNumber(money)
+
+        //그 외의 예외처리가 필요한가???
+
+        return money.toInt()
+    }
 }

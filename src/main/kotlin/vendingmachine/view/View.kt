@@ -15,4 +15,9 @@ class View {
         OutputView().getItems()
         return InputView().getItems()
     }
+
+    fun getMyMoney(): Int {
+        OutputView().getMyMoney()
+        return InputView().getMyMoney()
+    }
 }
