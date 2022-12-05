@@ -1,6 +1,7 @@
 package vendingmachine.domain
 
 import vendingmachine.model.CoinList
+import vendingmachine.view.View
 
 class VendingManager {
 
@@ -8,11 +9,12 @@ class VendingManager {
     fun start() {
         getMoney()
         getItems()
-        doShoping()
+        doShopping()
         giveChange()
     }
 
     private fun getMoney() {
+        View()
 
     }
 
@@ -20,7 +22,7 @@ class VendingManager {
 
     }
 
-    private fun doShoping() {
+    private fun doShopping() {
 
     }
 
