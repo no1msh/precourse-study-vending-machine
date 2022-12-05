@@ -11,4 +11,8 @@ class View {
         OutputView().showChanges(coins)
     }
 
+    fun getItems(): List<List<String>> {
+        OutputView().getItems()
+        return InputView().getItems()
+    }
 }

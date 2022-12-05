@@ -5,6 +5,8 @@ import vendingmachine.view.View
 
 class VendingManager {
 
+    lateinit var items: List<List<String>>
+
     val coins: CoinList = CoinList()
     fun start() {
         getMoney()
@@ -19,7 +21,7 @@ class VendingManager {
     }
 
     private fun getItems() {
-
+        items = View().getItems()
     }
 
     private fun doShopping() {

@@ -26,4 +26,9 @@ class InputView {
             false
         }
     }
+
+    fun getItems(): List<List<String>> {
+        
+    }
+
 }
