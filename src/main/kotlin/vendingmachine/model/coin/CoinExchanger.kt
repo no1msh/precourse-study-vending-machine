@@ -6,7 +6,7 @@ import java.util.*
 class CoinExchanger(private val generator: RandomGenerator) {
 
     fun exchange(money: Int): EnumMap<Coin, Int> {
-        val coinCounts = EnumMap<Coin, Int>(Coin::class.java)
+        val countOf: EnumMap<Coin, Int> = Coin.associateWith { 0 }
         var deposit = money
 
         while (Coin.MIN_AMOUNT <= deposit) {
@@ -15,10 +15,13 @@ class CoinExchanger(private val generator: RandomGenerator) {
                 continue
             }
 
+            val coin = Coin[amount]
+
             deposit -= amount
-            coinCounts[Coin[amount]]!!.plus(1)
+
+            countOf[coin] = countOf[coin]!!.plus(1)
         }
 
-        return coinCounts
+        return countOf
     }
 }
