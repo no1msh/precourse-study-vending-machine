@@ -54,6 +54,7 @@ class InputView {
             result.add(count.split(","))
             VendingException().itemException(result.last())
         }
+        VendingException().checkOverLap(result)
         return result
     }
 
