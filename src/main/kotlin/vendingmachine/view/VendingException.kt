@@ -20,8 +20,8 @@ class VendingException {
         require(items.size == 3) { "$ERROR $IT_LOSE_SOMETHING" }
         require(items[1].toIntOrNull() != null) { "$ERROR $NOT_NUMBER_MONEY" }
         require(items[2].toIntOrNull() != null) { "$ERROR $NOT_NUMBER_COUNT" }
-        require(items[1].toInt()>=100){ "$ERROR $IT_IS_UNDER_100" }
-        require(items[1].toInt()%10==0){"$ERROR $CAN_NOT_DIVIDE_10"}
+        require(items[1].toInt() >= 100) { "$ERROR $IT_IS_UNDER_100" }
+        require(items[1].toInt() % 10 == 0) { "$ERROR $CAN_NOT_DIVIDE_10" }
     }
 
 
