@@ -18,7 +18,7 @@ enum class Coin(private val amount: Int) : Comparable<Coin> {
 
         operator fun get(amount: Int): Coin = amounts[amount]!!
 
-        operator fun contains(amount: Int): Boolean = amounts.contains(amount)
+        operator fun contains(amount: Int): Boolean = amounts.containsKey(amount)
 
         inline fun <V> associateWith(valueSelector: (Coin) -> V): EnumMap<Coin, V> {
             val map = EnumMap<Coin, V>(Coin::class.java)
