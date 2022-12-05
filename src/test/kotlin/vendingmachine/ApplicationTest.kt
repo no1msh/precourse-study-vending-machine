@@ -5,6 +5,8 @@ import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import vendingmachine.model.CoinList
+import vendingmachine.view.View
 
 class ApplicationTest : NsTest() {
 
@@ -33,6 +35,31 @@ class ApplicationTest : NsTest() {
     override fun runMain() {
         main()
     }
+
+
+    @Test
+    fun `코인_생성_테스트`() {
+        assertRandomNumberInListTest(
+            {
+                val coins = CoinList()
+                coins.settingCoins(1150)
+                equals(mutableListOf(2, 1, 1, 0) == coins.getCoins())
+
+            }, 500, 100, 500, 50
+        )
+    }
+
+    @Test
+    fun `코인_상황_출력_테스트`() {
+        assertSimpleTest {
+            View().showChanges(mutableListOf(3, 2, 1, 4))
+
+            assertThat(output()).contains(
+                "자판기가 보유한 동전", "500원 - 3개", "100원 - 2개", "50원 - 1개", "10원 - 4개"
+            )
+        }
+    }
+
 
     companion object {
         private const val ERROR_MESSAGE = "[ERROR]"
