@@ -8,8 +8,6 @@ enum class Coin(private val amount: Int) : Comparable<Coin> {
     COIN_100(100),
     COIN_500(500),;
 
-    operator fun compareTo(number: Int): Int = amount.compareTo(number)
-
     companion object {
         val MAX_AMOUNT = values().maxOf { it.amount }
         val MIN_AMOUNT = values().minOf { it.amount }
