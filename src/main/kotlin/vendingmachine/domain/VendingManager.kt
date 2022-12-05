@@ -7,7 +7,7 @@ class VendingManager {
 
     lateinit var items: List<List<String>>
 
-    val coins: CoinList = CoinList()
+    private val coins: CoinList = CoinList()
     fun start() {
         getMoney()
         getItems()
@@ -31,4 +31,5 @@ class VendingManager {
     private fun giveChange() {
 
     }
+    
 }
