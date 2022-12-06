@@ -76,6 +76,21 @@ class ApplicationTest : NsTest() {
 
     }
 
+    @Test
+    fun `구입에 관한 테스트`() {
+        assertSimpleTest {
+            command("콜라")
+            assertThat(1500).isEqualTo(
+                InputView(
+                    listOf(
+                        listOf("콜라", "1500", "20"),
+                        listOf("사이다", "1000", "10")
+                    )
+                ).doShopping
+            )
+        }
+    }
+
 
     private fun command(vararg args: String) {
         val buf = java.lang.String.join("\n", *args).toByteArray()
