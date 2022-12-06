@@ -7,6 +7,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import vendingmachine.model.CoinList
 import vendingmachine.view.InputView
+import vendingmachine.view.OutputView
 import vendingmachine.view.View
 import java.io.ByteArrayInputStream
 
@@ -89,6 +90,19 @@ class ApplicationTest : NsTest() {
                 )
             )
         }
+    }
+
+    @Test
+    fun `잔돈 반환에 관한 테스트`(){
+        assertRandomNumberInListTest(
+            {
+                val coins = CoinList()
+                coins.settingCoins(1550)
+                OutputView().giveChange(550,coins)
+                assertThat(output()).contains("잔돈", "500원 - 1개", "50원 - 1개")
+
+            }, 500, 100, 500, 50, 100, 100, 100, 100
+        )
     }
 
 
