@@ -66,7 +66,12 @@ class ApplicationTest : NsTest() {
     fun `아이템 입력에 관한 테스트`() {
         assertSimpleTest {
             command("[콜라,1500,20];[사이다,1000,10]")
-            assertThat(listOf(listOf("콜라", "1500", "20"), listOf("사이다", "1000", "10"))).isEqualTo(InputView().getItems())
+            assertThat(
+                listOf(
+                    listOf("콜라", "1500", "20"),
+                    listOf("사이다", "1000", "10")
+                )
+            ).isEqualTo(InputView().getItems())
         }
 
     }
