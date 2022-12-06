@@ -47,7 +47,7 @@ class OutputView {
         println("투입 금액: ${money}원")
     }
 
-    fun canNotBuy(){
+    fun canNotBuy() {
         println(CAN_NOT_BUY)
     }
 }
