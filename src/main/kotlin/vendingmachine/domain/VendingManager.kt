@@ -45,10 +45,6 @@ class VendingManager {
         }
     }
 
-    private fun giveChange() {
-
-    }
-
     private fun getMinValue(): Int {
         var minvalue = items[0][1].toInt()
         for (count in items.indices) {
@@ -56,6 +52,10 @@ class VendingManager {
                 minvalue = items[count][1].toInt()
         }
         return minvalue
+    }
+
+    private fun giveChange() {
+        View().giveChange(money, coins)
     }
 
 }

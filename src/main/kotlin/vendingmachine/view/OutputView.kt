@@ -1,6 +1,7 @@
 package vendingmachine.view
 
 import vendingmachine.Coin
+import vendingmachine.model.CoinList
 
 
 const val GIMME_COIN = "자판기가 보유하고 있는 금액을 입력해 주세요."
@@ -50,4 +51,25 @@ class OutputView {
     fun canNotBuy() {
         println(CAN_NOT_BUY)
     }
+
+    fun giveChange(money: Int, coins: CoinList) {
+        val str = StringBuilder()
+        str.appendLine("잔돈")
+        str.appendLine(changes(coins.getChanges(money)))
+        println(str)
+    }
+
+    private fun changes(coins: List<Int>): String {
+        val str = StringBuilder()
+        if (coins[0] != 0)
+            str.appendLine("500원 - ${coins[0]}개")
+        if (coins[1] != 0)
+            str.appendLine("100원 - ${coins[1]}개")
+        if (coins[2] != 0)
+            str.appendLine("50원 - ${coins[2]}개")
+        if (coins[3] != 0)
+            str.appendLine("10원 - ${coins[3]}개")
+        return str.toString()
+    }
+
 }
