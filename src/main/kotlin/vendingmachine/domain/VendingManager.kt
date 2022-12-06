@@ -35,6 +35,7 @@ class VendingManager {
     private fun doShopping() {
         val minvalue = getMinValue()
         while (minvalue < money) {
+            View().moneyNow(money)
             money -= View().doShopping(items)
         }
     }

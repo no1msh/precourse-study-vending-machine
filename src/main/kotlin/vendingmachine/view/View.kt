@@ -26,4 +26,8 @@ class View {
         return InputView().doShopping(items)
     }
 
+    fun moneyNow(money:Int){
+        OutputView().moneyNow(money)
+    }
+
 }

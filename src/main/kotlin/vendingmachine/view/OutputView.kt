@@ -41,4 +41,8 @@ class OutputView {
     fun doShopping() {
         println(GIMME_WHAT_YOU_BUY)
     }
+
+    fun moneyNow(money: Int) {
+        println("투입 금액: ${money}원")
+    }
 }
