@@ -81,12 +81,12 @@ class ApplicationTest : NsTest() {
         assertSimpleTest {
             command("콜라")
             assertThat(1500).isEqualTo(
-                InputView(
+                InputView().doShopping(
                     listOf(
                         listOf("콜라", "1500", "20"),
                         listOf("사이다", "1000", "10")
                     )
-                ).doShopping
+                )
             )
         }
     }
