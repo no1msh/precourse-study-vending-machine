@@ -30,4 +30,8 @@ class View {
         OutputView().moneyNow(money)
     }
 
+    fun canNotBuy(){
+        OutputView().canNotBuy()
+    }
+
 }

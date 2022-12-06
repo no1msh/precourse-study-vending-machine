@@ -36,7 +36,12 @@ class VendingManager {
         val minvalue = getMinValue()
         while (minvalue < money) {
             View().moneyNow(money)
-            money -= View().doShopping(items)
+            val buy = View().doShopping(items)
+            if(buy>money){
+                View().canNotBuy()
+                continue
+            }
+            money -= buy
         }
     }
 

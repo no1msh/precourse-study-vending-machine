@@ -8,6 +8,7 @@ const val VENDING_MACHINE_HAVE = "자판기가 보유한 동전"
 const val GIMME_ITEMS = "상품명과 가격, 수량을 입력해 주세요."
 const val GIMME_MY_MONEY = "투입 금액을 입력해 주세요."
 const val GIMME_WHAT_YOU_BUY = "구매할 상품명을 입력해 주세요."
+const val CAN_NOT_BUY = "금액이 부족합니다. 다른 상품을 선택하여주십시오."
 
 class OutputView {
     fun giveMeCoin() {
@@ -44,5 +45,9 @@ class OutputView {
 
     fun moneyNow(money: Int) {
         println("투입 금액: ${money}원")
+    }
+
+    fun canNotBuy(){
+        println(CAN_NOT_BUY)
     }
 }
