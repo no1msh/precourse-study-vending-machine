@@ -1,5 +1,7 @@
 package vendingmachine.view
 
+import vendingmachine.VendingMachineBalance
+
 class View {
     private val outputView = OutputView()
     private val inputView = InputView()
@@ -13,4 +15,10 @@ class View {
             getAdminMoney()
         }
     }
+
+    fun printVendingMachineBalance(balance: VendingMachineBalance) {
+        outputView.printBalance(balance)
+    }
+
+    
 }
