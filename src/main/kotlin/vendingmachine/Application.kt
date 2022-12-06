@@ -1,5 +1,8 @@
 package vendingmachine
 
+import vendingmachine.view.VendingMachineView
+
 fun main() {
-    TODO("프로그램 구현")
+    VendingMachineView.newInstance()
+        .show()
 }
