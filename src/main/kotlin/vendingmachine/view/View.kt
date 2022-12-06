@@ -21,5 +21,9 @@ class View {
         return InputView().getMyMoney()
     }
 
+    fun doShopping(items:List<List<String>>):Int{
+        OutputView().doShopping()
+        return InputView().doShopping(items)
+    }
 
 }

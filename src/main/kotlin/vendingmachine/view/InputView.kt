@@ -76,4 +76,24 @@ class InputView {
 
         return money.toInt()
     }
+
+    fun doShopping(items: List<List<String>>): Int {
+        var buy = ""
+        while (true) {
+            try {
+                buy = Console.readLine()
+                return items[itemMatching(buy, items)][1].toInt()
+            } catch (error: IllegalArgumentException) {
+                println(error.message)
+            }
+        }
+    }
+
+    private fun itemMatching(item: String, items: List<List<String>>): Int {
+        for (count in items.indices) {
+            if (item == items[count][0])
+                return count
+        }
+        throw IllegalArgumentException("[ERROR] 상품 목록에 없는 품목입니다.")
+    }
 }

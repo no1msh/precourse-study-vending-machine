@@ -33,11 +33,23 @@ class VendingManager {
     }
 
     private fun doShopping() {
-
+        val minvalue = getMinValue()
+        while (minvalue < money) {
+            money -= View().doShopping(items)
+        }
     }
 
     private fun giveChange() {
 
+    }
+
+    private fun getMinValue(): Int {
+        var minvalue = items[0][1].toInt()
+        for (count in items.indices) {
+            if (minvalue > items[count][1].toInt())
+                minvalue = items[count][1].toInt()
+        }
+        return minvalue
     }
 
 }
