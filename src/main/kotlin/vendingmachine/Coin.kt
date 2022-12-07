@@ -6,5 +6,5 @@ enum class Coin(private val amount: Int) {
     COIN_50(50),
     COIN_10(10);
 
-    // 추가 기능 구현
+    fun amount(): Int = this.amount
 }

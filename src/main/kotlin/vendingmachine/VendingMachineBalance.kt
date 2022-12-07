@@ -4,17 +4,22 @@ import camp.nextstep.edu.missionutils.Randoms.pickNumberInList
 import java.lang.StringBuilder
 
 class VendingMachineBalance {
-    private var balance = mutableMapOf(500 to 0, 100 to 0, 50 to 0, 10 to 0)
+    private var balance = mutableMapOf(
+        Coin.COIN_500.amount() to 0,
+        Coin.COIN_100.amount() to 0,
+        Coin.COIN_50.amount() to 0,
+        Coin.COIN_10.amount() to 0
+    )
 
     fun putAdminMoney(adminMoney: Int) {
         var money = adminMoney
-        val coins = listOf(500,100,50)
+        val coins = listOf(Coin.COIN_500.amount(), Coin.COIN_100.amount(), Coin.COIN_50.amount())
         for (coin in coins) {
-            var counts = (0..money/coin).toList()
+            var counts = (0..money / coin).toList()
             balance[coin] = pickNumberInList(counts)
-            money -= (balance[coin]!!*coin)
+            money -= (balance[coin]!! * coin)
         }
-        balance[10] = money / 10
+        balance[Coin.COIN_10.amount()] = money / Coin.COIN_10.amount()
     }
 
     fun getBalance(): StringBuilder {
