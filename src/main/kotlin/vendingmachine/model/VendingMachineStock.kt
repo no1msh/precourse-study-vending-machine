@@ -1,8 +1,8 @@
-package vendingmachine
+package vendingmachine.model
 
 class VendingMachineStock {
-    private var stock = mutableMapOf<String,Int>()
-    private var price = mutableMapOf<String,Int>()
+    private var stock = mutableMapOf<String, Int>()
+    private var price = mutableMapOf<String, Int>()
 
     fun putAdminGoods(goods: MutableList<List<String>>) {
         for (elem in goods) {

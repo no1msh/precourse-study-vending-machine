@@ -1,6 +1,6 @@
 package vendingmachine.view
 
-import vendingmachine.VendingMachineBalance
+import vendingmachine.model.VendingMachineBalance
 
 class View {
     private val outputView = OutputView()

@@ -1,4 +1,4 @@
-package vendingmachine
+package vendingmachine.model
 
 import camp.nextstep.edu.missionutils.Randoms.pickNumberInList
 import java.lang.StringBuilder
