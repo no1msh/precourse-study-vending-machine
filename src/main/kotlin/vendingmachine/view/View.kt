@@ -20,5 +20,13 @@ class View {
         outputView.printBalance(balance)
     }
 
-    
+    fun getAdminGoods(): MutableList<List<String>> {
+        outputView.requestGoods()
+        return try {
+            inputView.getAdminGoods()
+        } catch (e: IllegalArgumentException) {
+            outputView.printErrorMessage(e)
+            getAdminGoods()
+        }
+    }
 }

@@ -12,4 +12,15 @@ class InputView {
         return input.toInt()
     }
 
+    fun getAdminGoods(): MutableList<List<String>> {
+        val input = readLine()
+        val products = input.split(";")
+        var goods = mutableListOf<List<String>>()
+        for (product in products) {
+            goods.add(product.replace("[\\[\\]]".toRegex(),"").split(",").toMutableList())
+        }
+        exceptions.validateGoodsInput(goods)
+        return goods
+    }
+
 }
