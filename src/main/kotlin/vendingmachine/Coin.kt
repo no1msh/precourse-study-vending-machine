@@ -7,4 +7,5 @@ enum class Coin(private val amount: Int) {
     COIN_10(10);
 
     // 추가 기능 구현
+    fun getAmount(): Int = amount
 }
