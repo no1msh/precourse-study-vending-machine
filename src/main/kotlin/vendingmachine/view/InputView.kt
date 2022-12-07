@@ -17,7 +17,7 @@ class InputView {
         val products = input.split(";")
         var goods = mutableListOf<List<String>>()
         for (product in products) {
-            goods.add(product.replace("[\\[\\]]".toRegex(),"").split(",").toMutableList())
+            goods.add(product.replace("[\\[\\]]".toRegex(), "").split(",").toMutableList())
         }
         exceptions.validateGoodsInput(goods)
         return goods

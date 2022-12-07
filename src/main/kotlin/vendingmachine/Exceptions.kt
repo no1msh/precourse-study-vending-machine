@@ -11,12 +11,12 @@ class Exceptions {
     fun validateGoodsInput(goods: MutableList<List<String>>) {
         val tmp = mutableListOf<String>()
         goods.forEach { tmp.add(it[0]) }
-        require(tmp.distinct().size == tmp.size) {throw IllegalArgumentException(WRONG_GOODS_SIZE_MESSAGE)}
-        require(goods.all { it[1].toIntOrNull() != null }) {throw IllegalArgumentException(WRONG_PRICE_TYPE_MESSAGE)}
-        require(goods.all { it[2].toIntOrNull() != null }) {throw IllegalArgumentException(WRONG_STOCK_TYPE_MESSAGE)}
-        require(goods.all { it[1].toInt() >= 100 }) {throw IllegalArgumentException(WRONG_PRICE_RANGE_MESSAGE)}
-        require(goods.all { it[1].toInt() % 10 == 0}) {throw IllegalArgumentException(WRONG_PRICE_INPUT_MESSAGE)}
-        require(goods.all { it[2].toInt() > 0}) {throw IllegalArgumentException(WRONG_STOCK_RANGE_MESSAGE)}
+        require(tmp.distinct().size == tmp.size) { throw IllegalArgumentException(WRONG_GOODS_SIZE_MESSAGE) }
+        require(goods.all { it[1].toIntOrNull() != null }) { throw IllegalArgumentException(WRONG_PRICE_TYPE_MESSAGE) }
+        require(goods.all { it[2].toIntOrNull() != null }) { throw IllegalArgumentException(WRONG_STOCK_TYPE_MESSAGE) }
+        require(goods.all { it[1].toInt() >= 100 }) { throw IllegalArgumentException(WRONG_PRICE_RANGE_MESSAGE) }
+        require(goods.all { it[1].toInt() % 10 == 0 }) { throw IllegalArgumentException(WRONG_PRICE_INPUT_MESSAGE) }
+        require(goods.all { it[2].toInt() > 0 }) { throw IllegalArgumentException(WRONG_STOCK_RANGE_MESSAGE) }
     }
 
     companion object {

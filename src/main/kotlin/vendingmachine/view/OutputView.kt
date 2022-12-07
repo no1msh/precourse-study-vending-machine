@@ -1,7 +1,6 @@
 package vendingmachine.view
 
-import vendingmachine.VendingMachineBalance
-import java.lang.StringBuilder
+import vendingmachine.model.VendingMachineBalance
 
 class OutputView {
 
