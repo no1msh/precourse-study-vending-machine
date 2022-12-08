@@ -1,4 +1,4 @@
-package vendingmachine
+package vendingmachine.model
 
 enum class Coin(private val amount: Int) {
     COIN_500(500),
@@ -11,7 +11,7 @@ enum class Coin(private val amount: Int) {
 
     companion object {
         fun getCoin(amount: Int): Coin? {
-            return when(amount) {
+            return when (amount) {
                 COIN_500.amount -> COIN_500
                 COIN_100.amount -> COIN_100
                 COIN_50.amount -> COIN_50

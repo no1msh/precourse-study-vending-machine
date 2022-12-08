@@ -1,7 +1,7 @@
 package vendingmachine.domain
 
 import camp.nextstep.edu.missionutils.Randoms
-import vendingmachine.Coin
+import vendingmachine.model.Coin
 
 class VendingService {
 

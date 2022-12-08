@@ -1,6 +1,6 @@
 package vendingmachine.ui
 
-import vendingmachine.Coin
+import vendingmachine.model.Coin
 import vendingmachine.model.Product
 import vendingmachine.ui.input.InputView
 import vendingmachine.ui.output.OutputView

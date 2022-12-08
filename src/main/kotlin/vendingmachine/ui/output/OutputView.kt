@@ -1,6 +1,6 @@
 package vendingmachine.ui.output
 
-import vendingmachine.Coin
+import vendingmachine.model.Coin
 
 enum class GameMessages(private val message: String) {
     INPUT_HOLD_MONEY("자판기가 보유하고 있는 금액을 입력해 주세요."),

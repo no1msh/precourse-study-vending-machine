@@ -1,6 +1,6 @@
 package vendingmachine.controller
 
-import vendingmachine.Coin
+import vendingmachine.model.Coin
 import vendingmachine.domain.SellingProduct
 import vendingmachine.domain.VendingService
 import vendingmachine.ui.View
