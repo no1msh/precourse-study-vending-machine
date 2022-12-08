@@ -10,4 +10,10 @@ class VendingMachineStock {
             stock[elem[0]] = elem[2].toInt()
         }
     }
+
+    fun isInStock(item: String): Boolean {
+        if (item in stock.keys)
+            return true
+        return false
+    }
 }

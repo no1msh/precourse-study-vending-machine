@@ -2,6 +2,7 @@ package vendingmachine.view
 
 import camp.nextstep.edu.missionutils.Console.readLine
 import vendingmachine.Exceptions
+import vendingmachine.model.VendingMachineStock
 
 class InputView {
     private val exceptions = Exceptions()
@@ -21,6 +22,12 @@ class InputView {
         }
         exceptions.validateGoodsInput(goods)
         return goods
+    }
+
+    fun getBuyerGoods(stock: VendingMachineStock): String {
+        val input = readLine()
+        exceptions.validateItemInput(input, stock)
+        return input
     }
 
 }
