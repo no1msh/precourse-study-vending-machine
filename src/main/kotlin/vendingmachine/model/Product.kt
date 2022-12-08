@@ -23,6 +23,7 @@ class Product(private val name: String, private val inputPrice: String, private 
         if (price > money) {
             return money
         }
+        amount -= 1
         return money - price
     }
 }
