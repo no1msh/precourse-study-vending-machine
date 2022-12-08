@@ -12,6 +12,7 @@ class VendingMachine {
     fun run() {
         admin.putMoney(balance)
         admin.putGoods(stock)
-        buyer.getGoods(balance, stock)
+        buyer.getGoods(stock)
+        buyer.getBalance(balance)
     }
 }

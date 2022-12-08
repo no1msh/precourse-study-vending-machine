@@ -22,9 +22,11 @@ class VendingMachineBalance {
         balance[Coin.COIN_10.amount()] = money / Coin.COIN_10.amount()
     }
 
-    fun getBalance(): StringBuilder {
+    fun getBalance(isResult: Boolean): StringBuilder {
         val stringBuilder = StringBuilder()
         for (elem in balance) {
+            if (isResult && elem.value == 0)
+                continue
             stringBuilder.append(elem.key)
             stringBuilder.append("원 - ")
             stringBuilder.append(elem.value)
@@ -32,5 +34,4 @@ class VendingMachineBalance {
         }
         return stringBuilder
     }
-
 }

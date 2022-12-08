@@ -7,18 +7,14 @@ class View {
     private val outputView = OutputView()
     private val inputView = InputView()
 
-    fun requestMoney(): Int {
-        outputView.requestInitialMoney()
+    fun requestMoney(isAdmin: Boolean): Int {
+        outputView.requestInitialMoney(isAdmin)
         return try {
             inputView.getMoney()
         } catch (e: IllegalArgumentException) {
             outputView.printErrorMessage(e)
-            requestMoney()
+            requestMoney(isAdmin)
         }
-    }
-
-    fun printVendingMachineBalance(balance: VendingMachineBalance) {
-        outputView.printBalance(balance)
     }
 
     fun getAdminGoods(): MutableList<List<String>> {
@@ -32,12 +28,18 @@ class View {
     }
 
     fun requestGoodsName(buyerMoney: Int, stock: VendingMachineStock): String {
-        outputView.requestGoodsName(buyerMoney)
+        outputView.printRemainingMoney(buyerMoney)
+        outputView.requestGoodsName()
         return try {
             inputView.getBuyerGoods(stock)
         } catch (e: IllegalArgumentException) {
             outputView.printErrorMessage(e)
             requestGoodsName(buyerMoney, stock)
         }
+    }
+
+    fun printVendingMachineBalance(balance: VendingMachineBalance, isResult: Boolean, buyerMoney: Int) {
+        outputView.printRemainingMoney(buyerMoney)
+        outputView.printBalance(balance, isResult)
     }
 }
