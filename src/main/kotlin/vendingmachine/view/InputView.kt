@@ -1,6 +1,7 @@
 package vendingmachine.view
 
 import camp.nextstep.edu.missionutils.Console
+import vendingmachine.domain.VendingException
 
 
 class InputView {
@@ -71,9 +72,6 @@ class InputView {
 
     private fun moneyErrorCheck(money: String): Int {
         VendingException().isItNumber(money)
-
-        //그 외의 예외처리가 필요한가???
-
         return money.toInt()
     }
 
