@@ -12,7 +12,7 @@ class ExceptionsTest {
     @ValueSource(strings = ["five", "-1", "1235"])
     fun `관리자 금액 입력 오류 테스트`(input: String) {
         assertThrows<IllegalArgumentException> {
-            exceptions.validateAdminInput(input)
+            exceptions.validateMoneyInput(input)
         }
     }
 
