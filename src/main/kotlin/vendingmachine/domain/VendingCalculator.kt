@@ -4,6 +4,17 @@ import vendingmachine.view.View
 
 class VendingCalculator {
 
+    fun divideString(getString: String): MutableList<MutableList<String>> {
+        val result = mutableListOf<MutableList<String>>()
+        val middle = getString.split(";")
+        for (count in middle) {
+            result.add(count.split(",").toMutableList())
+            VendingException().itemException(result.last())
+        }
+        VendingException().checkOverLap(result)
+        return result
+    }
+
     fun getMinValue(items: List<List<String>>): Int {
         var minvalue = items[0][1].toInt()
         for (count in items.indices) {
@@ -19,6 +30,14 @@ class VendingCalculator {
         return string + "개"
     }
 
+    fun canIBuy(money: Int, price: Int): Boolean {
+        if (price > money) {
+            View().canNotBuy()
+            return false
+        }
+        return true
+    }
+
     fun changes(coins: List<Int>): String {
         val str = StringBuilder()
         if (coins[0] != 0)
@@ -30,14 +49,6 @@ class VendingCalculator {
         if (coins[3] != 0)
             str.appendLine("10원 - ${coins[3]}개")
         return str.toString()
-    }
-
-    fun canIBuy(money: Int, price: Int): Boolean {
-        if (price > money) {
-            View().canNotBuy()
-            return false
-        }
-        return true
     }
 
 }

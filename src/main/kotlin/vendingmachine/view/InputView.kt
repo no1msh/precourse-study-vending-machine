@@ -1,6 +1,7 @@
 package vendingmachine.view
 
 import camp.nextstep.edu.missionutils.Console
+import vendingmachine.domain.VendingCalculator
 import vendingmachine.domain.VendingException
 
 
@@ -29,34 +30,20 @@ class InputView {
     }
 
     fun getItems(): MutableList<MutableList<String>> {
-        lateinit var result: MutableList<MutableList<String>>
         while (true) {
             try {
-                result = itemGet()
-                break
+                return getItemNTrim()
             } catch (error: IllegalArgumentException) {
                 println(error.message)
             }
         }
-        return result
     }
 
-    private fun itemGet(): MutableList<MutableList<String>> {
+    private fun getItemNTrim(): MutableList<MutableList<String>> {
         var getString = Console.readLine()
         getString = getString.replace("[", "")
         getString = getString.replace("]", "")
-        return divideString(getString)
-    }
-
-    private fun divideString(getString: String): MutableList<MutableList<String>> {
-        val result = mutableListOf<MutableList<String>>()
-        val middle = getString.split(";")
-        for (count in middle) {
-            result.add(count.split(",").toMutableList())
-            VendingException().itemException(result.last())
-        }
-        VendingException().checkOverLap(result)
-        return result
+        return VendingCalculator().divideString(getString)
     }
 
     fun getMyMoney(): Int {
@@ -76,12 +63,11 @@ class InputView {
     }
 
     fun doShopping(items: List<List<String>>): Pair<Int, Int> {
-        var buy = ""
         while (true) {
             try {
-                buy = Console.readLine()
-                val MatchingValue = itemMatching(buy, items)
-                return Pair(items[MatchingValue][1].toInt(), MatchingValue)
+                val buy = Console.readLine()
+                val matchingValue = itemMatching(buy, items)
+                return Pair(items[matchingValue][1].toInt(), matchingValue)
             } catch (error: IllegalArgumentException) {
                 println(error.message)
             }
