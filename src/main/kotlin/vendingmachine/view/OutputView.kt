@@ -18,6 +18,7 @@ class OutputView {
     }
 
     fun printBalance(balance: VendingMachineBalance, isResult: Boolean) {
+        println()
         if (isResult) {
             println(REMAINING_MONEY_MESSAGE)
         }
@@ -32,6 +33,7 @@ class OutputView {
     }
 
     fun requestGoodsName() {
+        println()
         println(REQUEST_GOODS_NAME_MESSAGE)
     }
 

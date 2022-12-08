@@ -6,8 +6,6 @@ import java.lang.StringBuilder
 
 class VendingMachineBalance {
     private val stringBuilder = StringBuilder()
-    private val coins = listOf(Coin.COIN_500.amount(), Coin.COIN_100.amount(), Coin.COIN_50.amount())
-
     private var balance = mutableMapOf(
         Coin.COIN_500.amount() to 0,
         Coin.COIN_100.amount() to 0,
@@ -17,6 +15,7 @@ class VendingMachineBalance {
 
     fun putAdminMoney(adminMoney: Int) {
         var money = adminMoney
+        val coins = listOf(Coin.COIN_500.amount(), Coin.COIN_100.amount(), Coin.COIN_50.amount())
         for (coin in coins) {
             var counts = (0..money / coin).toList()
             balance[coin] = pickNumberInList(counts)
@@ -39,12 +38,15 @@ class VendingMachineBalance {
     }
 
     fun updateBalance(buyerMoney: Int) {
+        val coins = listOf(Coin.COIN_500.amount(), Coin.COIN_100.amount(), Coin.COIN_50.amount(), Coin.COIN_10.amount())
         var money = buyerMoney
         for (coin in coins) {
-            if (coin >= money) {
-                balance[coin] = balance[coin]!! - min(balance[coin]!!, money/coin)
-                money -= (balance[coin]!! * coin)
-            }
+            println("금액 : $coin")
+            println("변경 전 : " + balance[coin])
+            balance[coin] = min(balance[coin]!!, money / coin)
+            println("변경 후 : " + balance[coin])
+            money -= (balance[coin]!! * coin)
+            println(money)
         }
     }
 }
