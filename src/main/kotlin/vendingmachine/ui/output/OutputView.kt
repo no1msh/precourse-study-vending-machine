@@ -55,4 +55,8 @@ class OutputView {
         println("${GameMessages.COIN_50.toString()} ${coin50}개")
         println("${GameMessages.COIN_10.toString()} ${coin10}개")
     }
+
+    fun printError(e: IllegalArgumentException) {
+        println(e.message)
+    }
 }
