@@ -21,11 +21,12 @@ class Buyer {
     }
 
     private fun isAvailablePurchase(stock: VendingMachineStock, buyerMoney: Int): Boolean {
-        return (stock.getMinPrice() > buyerMoney) && (stock.getStockCount() == 0)
+        return (stock.getMinPrice() < buyerMoney) && (stock.getStockCount() != 0)
     }
 
     fun getBalance(balance: VendingMachineBalance) {
-        view.printVendingMachineBalance(balance, true, buyerMoney)
+        view.printRemainMoney(buyerMoney)
+        view.printVendingMachineBalance(balance, true)
     }
 
 }

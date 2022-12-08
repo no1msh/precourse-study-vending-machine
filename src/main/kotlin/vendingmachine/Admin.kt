@@ -8,9 +8,9 @@ class Admin {
     private val view = View()
 
     fun putMoney(balance: VendingMachineBalance) {
-        val adminMoney = view.requestMoney()
+        val adminMoney = view.requestMoney(true)
         balance.putAdminMoney(adminMoney)
-        view.printVendingMachineBalance(balance)
+        view.printVendingMachineBalance(balance, false)
     }
 
     fun putGoods(stock: VendingMachineStock) {

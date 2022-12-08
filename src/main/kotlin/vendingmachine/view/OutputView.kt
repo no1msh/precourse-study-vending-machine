@@ -5,6 +5,7 @@ import vendingmachine.model.VendingMachineBalance
 class OutputView {
 
     fun requestInitialMoney(isAdmin: Boolean) {
+        println()
         if(isAdmin) {
             println(REQUEST_ADMIN_MONEY_MESSAGE)
         }
