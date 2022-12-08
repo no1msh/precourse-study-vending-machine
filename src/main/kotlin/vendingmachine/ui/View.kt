@@ -1,5 +1,6 @@
 package vendingmachine.ui
 
+import vendingmachine.Coin
 import vendingmachine.model.Product
 import vendingmachine.ui.input.InputView
 import vendingmachine.ui.output.OutputView
@@ -8,11 +9,11 @@ class View {
     private val inputView = InputView()
     private val outputView = OutputView()
 
-    fun getHoldMoney(): Int {
-        outputView.printInputHoldMoney()
+    fun getChanges(): Int {
+        outputView.printInputChanges()
         while (true) {
             try {
-                return inputView.readHoldMoney(inputView.getInput())
+                return inputView.readChanges(inputView.getInput())
             } catch (e: IllegalArgumentException) {
                 outputView.printError(e)
             }
@@ -20,6 +21,7 @@ class View {
     }
 
     fun getProduct(): List<Product> {
+        outputView.printInputProductInfo()
         while (true) {
             try {
                 return inputView.readProduct(inputView.getInput())
@@ -30,6 +32,7 @@ class View {
     }
 
     fun getInsertMoney(): Int {
+        outputView.printInputInsertMoney()
         while (true) {
             try {
                 return inputView.readInsertMoney(inputView.getInput())
@@ -39,7 +42,9 @@ class View {
         }
     }
 
-    fun getProductName(): String {
+    fun getProductName(insertMoney: Int): String {
+        outputView.printInsertMoney(insertMoney)
+        outputView.printInputProductName()
         while (true) {
             try {
                 return inputView.readProductName(inputView.getInput())
@@ -47,5 +52,12 @@ class View {
                 outputView.printError(e)
             }
         }
+    }
+
+    fun showInitialChanges(coins: List<Coin>) = outputView.printInitialChanges(coins)
+
+    fun showRemainChanges(coins: List<Coin?>, insertMoney: Int) {
+        outputView.printInsertMoney(insertMoney)
+        outputView.printChanges(coins)
     }
 }

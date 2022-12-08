@@ -16,6 +16,12 @@ class Product(private val name: String, private val inputPrice: String, private 
         amount = inputAmount.toInt()
     }
 
+    fun getName(): String = name
+
+    fun getPrice(): Int = price
+
+    fun getAmount(): Int = amount
+
     fun calculate(money: Int): Int {
         if (amount == 0) {
             return money

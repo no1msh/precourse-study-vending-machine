@@ -20,9 +20,9 @@ enum class GameMessages(private val message: String) {
 
 class OutputView {
 
-    fun printInputHoldMoney() = println(GameMessages.INPUT_HOLD_MONEY.toString())
+    fun printInputChanges() = println(GameMessages.INPUT_HOLD_MONEY.toString())
 
-    fun printHoldMoney(coins: List<Coin>) {
+    fun printInitialChanges(coins: List<Coin>) {
         val coin500 = coins.count { it == Coin.COIN_500 }
         val coin100 = coins.count { it == Coin.COIN_100 }
         val coin50 = coins.count { it == Coin.COIN_50 }
@@ -44,7 +44,7 @@ class OutputView {
         println(GameMessages.INPUT_PRODUCT_NAME.toString())
     }
 
-    fun printChanges(coins: List<Coin>) {
+    fun printChanges(coins: List<Coin?>) {
         val coin500 = coins.count { it == Coin.COIN_500 }
         val coin100 = coins.count { it == Coin.COIN_100 }
         val coin50 = coins.count { it == Coin.COIN_50 }

@@ -7,7 +7,7 @@ class InputView {
 
     private val inputValidations = InputValidations()
 
-    fun readHoldMoney(input: String): Int {
+    fun readChanges(input: String): Int {
         inputValidations.checkDigit(input)
         inputValidations.checkRemainder(input)
         return input.toInt()

@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.*
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
-import java.lang.IndexOutOfBoundsException
 
 internal class InputViewTest {
 
@@ -14,7 +13,7 @@ internal class InputViewTest {
     @ParameterizedTest
     @CsvSource(DIGIT_EXCEPTION, REMAINDER_EXCEPTION)
     fun `자판기 보유 금액 입력 테스트`(money: String) {
-        assertThrows<IllegalArgumentException> { inputView.readHoldMoney(money) }
+        assertThrows<IllegalArgumentException> { inputView.readChanges(money) }
     }
 
     @ParameterizedTest

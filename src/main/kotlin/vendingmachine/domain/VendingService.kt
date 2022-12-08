@@ -7,11 +7,12 @@ class VendingService {
 
     fun makeChanges(money: Int): List<Coin> {
         var coinsAndMoney: Pair<MutableList<Coin>, Int> = Pair(mutableListOf(), money)
+        var randomCount = Randoms.pickNumberInList(listOf(10, 50, 100, 500))
         do {
-            coinsAndMoney = addCoin10(coinsAndMoney.first, coinsAndMoney.second)
-            coinsAndMoney = addCoin50(coinsAndMoney.first, coinsAndMoney.second)
-            coinsAndMoney = addCoin100(coinsAndMoney.first, coinsAndMoney.second)
-            coinsAndMoney = addCoin500(coinsAndMoney.first, coinsAndMoney.second)
+            coinsAndMoney = addCoin500(coinsAndMoney.first, coinsAndMoney.second, randomCount)
+            coinsAndMoney = addCoin100(coinsAndMoney.first, coinsAndMoney.second, randomCount)
+            coinsAndMoney = addCoin50(coinsAndMoney.first, coinsAndMoney.second, randomCount)
+            coinsAndMoney = addCoin10(coinsAndMoney.first, coinsAndMoney.second, randomCount)
         } while (coinsAndMoney.second > 0)
         return coinsAndMoney.first
     }
@@ -20,10 +21,10 @@ class VendingService {
         var calculatedMoney = money
         val sortedCoins = sortCoins(coins).toMutableList()
         val changes: MutableList<Coin?> = mutableListOf()
-        while ((calculatedMoney - sortedCoins.last() >= 0) and (sortedCoins.isNotEmpty())) {
-            calculatedMoney -= sortedCoins.last()
-            changes.add(Coin.getCoin(sortedCoins.last()))
-            sortedCoins.removeLast()
+        var index = sortedCoins.size - 1
+        while ((calculatedMoney - sortedCoins[index] >= 0) and (--index >= 0)) {
+            calculatedMoney -= sortedCoins[index]
+            changes.add(Coin.getCoin(sortedCoins[index]))
         }
         return changes
     }
@@ -36,45 +37,45 @@ class VendingService {
         return sortedCoins.sorted()
     }
 
-    private fun addCoin10(coins: MutableList<Coin>, money: Int): Pair<MutableList<Coin>, Int> {
-        var randomCount = Randoms.pickNumberInList(listOf(Coin.COIN_10.getAmount()))
+    private fun addCoin10(coins: MutableList<Coin>, money: Int, randomCount: Int): Pair<MutableList<Coin>, Int> {
         var calculatedMoney = money
+        var count = randomCount
         while ((randomCount != 0) and (calculatedMoney - Coin.COIN_10.getAmount() >= 0)) {
             coins.add(Coin.COIN_10)
-            randomCount -= 1
+            count -= 1
             calculatedMoney -= 10
         }
         return coins to calculatedMoney
     }
 
-    private fun addCoin50(coins: MutableList<Coin>, money: Int): Pair<MutableList<Coin>, Int> {
-        var randomCount = Randoms.pickNumberInList(listOf(Coin.COIN_50.getAmount()))
+    private fun addCoin50(coins: MutableList<Coin>, money: Int, randomCount: Int): Pair<MutableList<Coin>, Int> {
         var calculatedMoney = money
+        var count = randomCount
         while ((randomCount != 0) and (calculatedMoney - Coin.COIN_50.getAmount() >= 0)) {
             coins.add(Coin.COIN_50)
-            randomCount -= 1
+            count -= 1
             calculatedMoney -= 50
         }
         return coins to calculatedMoney
     }
 
-    private fun addCoin100(coins: MutableList<Coin>, money: Int): Pair<MutableList<Coin>, Int> {
-        var randomCount = Randoms.pickNumberInList(listOf(Coin.COIN_100.getAmount()))
+    private fun addCoin100(coins: MutableList<Coin>, money: Int, randomCount: Int): Pair<MutableList<Coin>, Int> {
         var calculatedMoney = money
+        var count = randomCount
         while ((randomCount != 0) and (calculatedMoney - Coin.COIN_100.getAmount() >= 0)) {
             coins.add(Coin.COIN_100)
-            randomCount -= 1
+            count -= 1
             calculatedMoney -= 100
         }
         return coins to calculatedMoney
     }
 
-    private fun addCoin500(coins: MutableList<Coin>, money: Int): Pair<MutableList<Coin>, Int> {
-        var randomCount = Randoms.pickNumberInList(listOf(Coin.COIN_500.getAmount()))
+    private fun addCoin500(coins: MutableList<Coin>, money: Int, randomCount: Int): Pair<MutableList<Coin>, Int> {
         var calculatedMoney = money
+        var count = randomCount
         while ((randomCount != 0) and (calculatedMoney - Coin.COIN_500.getAmount() >= 0)) {
             coins.add(Coin.COIN_500)
-            randomCount -= 1
+            count -= 1
             calculatedMoney -= 500
         }
         return coins to calculatedMoney
