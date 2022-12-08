@@ -43,7 +43,6 @@ class VendingMachineBalance {
         for (coin in coins) {
             balance[coin] = min(balance[coin]!!, money / coin)
             money -= (balance[coin]!! * coin)
-            println(money)
         }
     }
 }

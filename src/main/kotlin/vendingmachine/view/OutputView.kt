@@ -18,12 +18,11 @@ class OutputView {
     }
 
     fun printBalance(balance: VendingMachineBalance, isResult: Boolean) {
-        println()
         if (isResult) {
             println(REMAINING_MONEY_MESSAGE)
         }
         if (!isResult) {
-            println(VENDING_MACHINE_BALANCE_MESSAGE)
+            println("\n" + VENDING_MACHINE_BALANCE_MESSAGE)
         }
         println(balance.getBalance(isResult))
     }
@@ -33,12 +32,11 @@ class OutputView {
     }
 
     fun requestGoodsName() {
-        println()
         println(REQUEST_GOODS_NAME_MESSAGE)
     }
 
     fun printRemainingMoney(buyerMoney: Int) {
-        println(REMAINING_AMOUNT_MESSAGE + buyerMoney + WON_MESSAGE)
+        println("\n" + REMAINING_AMOUNT_MESSAGE + buyerMoney + WON_MESSAGE)
     }
 
     companion object {
