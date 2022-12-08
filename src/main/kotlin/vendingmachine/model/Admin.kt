@@ -1,7 +1,5 @@
 package vendingmachine.model
 
-import vendingmachine.model.VendingMachineBalance
-import vendingmachine.model.VendingMachineStock
 import vendingmachine.view.View
 
 class Admin {

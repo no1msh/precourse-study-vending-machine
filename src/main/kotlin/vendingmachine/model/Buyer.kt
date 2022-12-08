@@ -1,7 +1,5 @@
 package vendingmachine.model
 
-import vendingmachine.model.VendingMachineBalance
-import vendingmachine.model.VendingMachineStock
 import vendingmachine.view.View
 
 class Buyer {
@@ -24,7 +22,7 @@ class Buyer {
         return (stock.getMinPrice() < buyerMoney) && (stock.getStockCount() != 0)
     }
 
-    fun getBalance(balance: VendingMachineBalance) {
+    fun getRemaining(balance: VendingMachineBalance) {
         view.printRemainMoney(buyerMoney)
         view.printVendingMachineBalance(balance, true)
     }
