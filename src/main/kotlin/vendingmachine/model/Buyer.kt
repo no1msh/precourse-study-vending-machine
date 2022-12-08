@@ -1,4 +1,4 @@
-package vendingmachine
+package vendingmachine.model
 
 import vendingmachine.model.VendingMachineBalance
 import vendingmachine.model.VendingMachineStock

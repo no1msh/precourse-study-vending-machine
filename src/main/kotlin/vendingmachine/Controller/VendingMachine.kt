@@ -1,5 +1,7 @@
-package vendingmachine
+package vendingmachine.Controller
 
+import vendingmachine.model.Admin
+import vendingmachine.model.Buyer
 import vendingmachine.model.VendingMachineBalance
 import vendingmachine.model.VendingMachineStock
 
