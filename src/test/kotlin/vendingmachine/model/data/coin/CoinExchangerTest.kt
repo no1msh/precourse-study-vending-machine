@@ -1,10 +1,11 @@
-package vendingmachine.model.coin
+package vendingmachine.model.data.coin
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.assertThrows
+import vendingmachine.model.data.coin.Coin
+import vendingmachine.model.data.coin.CoinExchanger
 import vendingmachine.model.random.RandomGenerator
 
 internal class CoinExchangerTest {
