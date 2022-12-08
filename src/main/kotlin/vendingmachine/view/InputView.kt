@@ -27,8 +27,8 @@ class InputView {
         }
     }
 
-    fun getItems(): List<List<String>> {
-        lateinit var result: List<List<String>>
+    fun getItems(): MutableList<MutableList<String>> {
+        lateinit var result: MutableList<MutableList<String>>
         while (true) {
             try {
                 result = itemGet()
@@ -40,18 +40,18 @@ class InputView {
         return result
     }
 
-    private fun itemGet(): List<List<String>> {
+    private fun itemGet(): MutableList<MutableList<String>> {
         var getString = Console.readLine()
         getString = getString.replace("[", "")
         getString = getString.replace("]", "")
         return divideString(getString)
     }
 
-    private fun divideString(getString: String): List<List<String>> {
-        val result = mutableListOf<List<String>>()
+    private fun divideString(getString: String): MutableList<MutableList<String>> {
+        val result = mutableListOf<MutableList<String>>()
         val middle = getString.split(";")
         for (count in middle) {
-            result.add(count.split(","))
+            result.add(count.split(",").toMutableList())
             VendingException().itemException(result.last())
         }
         VendingException().checkOverLap(result)
@@ -77,12 +77,13 @@ class InputView {
         return money.toInt()
     }
 
-    fun doShopping(items: List<List<String>>): Int {
+    fun doShopping(items: List<List<String>>): Pair<Int, Int> {
         var buy = ""
         while (true) {
             try {
                 buy = Console.readLine()
-                return items[itemMatching(buy, items)][1].toInt()
+                val MatchingValue = itemMatching(buy, items)
+                return Pair(items[MatchingValue][1].toInt(), MatchingValue)
             } catch (error: IllegalArgumentException) {
                 println(error.message)
             }
@@ -91,8 +92,10 @@ class InputView {
 
     private fun itemMatching(item: String, items: List<List<String>>): Int {
         for (count in items.indices) {
-            if (item == items[count][0])
+            if (item == items[count][0] && items[count][2].toInt() > 0)
                 return count
+            if (item == items[count][0] && items[count][2].toInt() == 0)
+                throw IllegalArgumentException("[ERROR] 재고가 소진된 상품입니다.")
         }
         throw IllegalArgumentException("[ERROR] 상품 목록에 없는 품목입니다.")
     }

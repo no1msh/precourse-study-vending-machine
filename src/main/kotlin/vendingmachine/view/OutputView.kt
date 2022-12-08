@@ -1,6 +1,7 @@
 package vendingmachine.view
 
 import vendingmachine.Coin
+import vendingmachine.domain.VendingCalculator
 import vendingmachine.model.CoinList
 
 
@@ -21,15 +22,9 @@ class OutputView {
         string.appendLine(VENDING_MACHINE_HAVE)
         for (count in Coin.values()) {
             string.append(count.toString())
-            string.appendLine(changesCount(coins[count.ordinal]))
+            string.appendLine(VendingCalculator().changesCount(coins[count.ordinal]))
         }
         println(string)
-    }
-
-    private fun changesCount(count: Int): String {
-        var string = " - "
-        string += count
-        return string + "개"
     }
 
     fun getItems() {
@@ -55,21 +50,9 @@ class OutputView {
     fun giveChange(money: Int, coins: CoinList) {
         val str = StringBuilder()
         str.appendLine("잔돈")
-        str.appendLine(changes(coins.getChanges(money)))
+        str.appendLine(VendingCalculator().changes(coins.getChanges(money)))
         println(str)
     }
 
-    private fun changes(coins: List<Int>): String {
-        val str = StringBuilder()
-        if (coins[0] != 0)
-            str.appendLine("500원 - ${coins[0]}개")
-        if (coins[1] != 0)
-            str.appendLine("100원 - ${coins[1]}개")
-        if (coins[2] != 0)
-            str.appendLine("50원 - ${coins[2]}개")
-        if (coins[3] != 0)
-            str.appendLine("10원 - ${coins[3]}개")
-        return str.toString()
-    }
 
 }

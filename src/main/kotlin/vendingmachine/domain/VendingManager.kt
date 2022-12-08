@@ -5,7 +5,7 @@ import vendingmachine.view.View
 
 class VendingManager {
 
-    lateinit var items: List<List<String>>
+    lateinit var items: MutableList<MutableList<String>>
 
     private val coins: CoinList = CoinList()
 
@@ -33,26 +33,20 @@ class VendingManager {
     }
 
     private fun doShopping() {
-        val minvalue = getMinValue()
+        val minvalue = VendingCalculator().getMinValue(items)
         while (minvalue < money) {
             View().moneyNow(money)
-            val buy = View().doShopping(items)
+            val buyResult = View().doShopping(items)
+            val buy = buyResult.first
             if (buy > money) {
                 View().canNotBuy()
                 continue
             }
             money -= buy
+            items[buyResult.second][2] = (items[buyResult.second][2].toInt() - 1).toString()
         }
     }
 
-    private fun getMinValue(): Int {
-        var minvalue = items[0][1].toInt()
-        for (count in items.indices) {
-            if (minvalue > items[count][1].toInt())
-                minvalue = items[count][1].toInt()
-        }
-        return minvalue
-    }
 
     private fun giveChange() {
         View().giveChange(money, coins)

@@ -13,7 +13,7 @@ class View {
         OutputView().showChanges(coins)
     }
 
-    fun getItems(): List<List<String>> {
+    fun getItems(): MutableList<MutableList<String>> {
         OutputView().getItems()
         return InputView().getItems()
     }
@@ -23,7 +23,7 @@ class View {
         return InputView().getMyMoney()
     }
 
-    fun doShopping(items: List<List<String>>): Int {
+    fun doShopping(items: List<List<String>>): Pair<Int, Int> {
         OutputView().doShopping()
         return InputView().doShopping(items)
     }
