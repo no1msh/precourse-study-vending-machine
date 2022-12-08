@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.*
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
+import java.lang.IndexOutOfBoundsException
 
 internal class InputViewTest {
 
@@ -17,7 +18,7 @@ internal class InputViewTest {
     }
 
     @ParameterizedTest
-    @CsvSource(FORMAT_EXCEPTION, ORDER_EXCEPTION, PRODUCT_EXCEPTION)
+    @CsvSource(ORDER_EXCEPTION, PRODUCT_EXCEPTION, delimiter = '.')
     fun `상품 정보 입력 테스트`(product: String) {
         assertThrows<IllegalArgumentException> { inputView.readProduct(product) }
     }
@@ -37,7 +38,6 @@ internal class InputViewTest {
         private const val DIGIT_EXCEPTION = "10aa"
         private const val REMAINDER_EXCEPTION = "111"
 
-        private const val FORMAT_EXCEPTION = "[콜라,1500,20][사이다,1000,10]"
         private const val ORDER_EXCEPTION = "[1500,콜라,20];[사이다,1000,10]"
         private const val PRODUCT_EXCEPTION = "[콜라,1501,20];[사이다,1000,10]"
     }

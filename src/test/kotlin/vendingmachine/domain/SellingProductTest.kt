@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll
 import vendingmachine.model.Product
 
 internal class SellingProductTest {
-    private val cider = Product("사이다", 1000, 20)
+    private val cider = Product("사이다", "1000", "20")
     private val sellingProduct = SellingProduct(listOf(cider))
 
 
