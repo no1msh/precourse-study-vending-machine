@@ -14,8 +14,9 @@ internal class VendingServiceTest {
     fun `자판기 보유 동전 생성 테스트`() {
         val money = 450
         var total = 0
+        vendingService.makeChanges(money).forEach { total += it.getAmount() }
         assertThat(
-            vendingService.makeChanges(money).forEach { total += it.getAmount() }
+            total
         ).isEqualTo(450)
     }
 
