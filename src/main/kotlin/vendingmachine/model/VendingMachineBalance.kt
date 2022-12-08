@@ -5,7 +5,6 @@ import kotlin.math.min
 import java.lang.StringBuilder
 
 class VendingMachineBalance {
-    private val stringBuilder = StringBuilder()
     private var balance = mutableMapOf(
         Coin.COIN_500.amount() to 0,
         Coin.COIN_100.amount() to 0,
@@ -25,6 +24,7 @@ class VendingMachineBalance {
     }
 
     fun getBalance(isResult: Boolean): StringBuilder {
+        val stringBuilder = StringBuilder()
         for (elem in balance) {
             if (isResult && elem.value == 0) {
                 continue
@@ -41,10 +41,7 @@ class VendingMachineBalance {
         val coins = listOf(Coin.COIN_500.amount(), Coin.COIN_100.amount(), Coin.COIN_50.amount(), Coin.COIN_10.amount())
         var money = buyerMoney
         for (coin in coins) {
-            println("금액 : $coin")
-            println("변경 전 : " + balance[coin])
             balance[coin] = min(balance[coin]!!, money / coin)
-            println("변경 후 : " + balance[coin])
             money -= (balance[coin]!! * coin)
             println(money)
         }
