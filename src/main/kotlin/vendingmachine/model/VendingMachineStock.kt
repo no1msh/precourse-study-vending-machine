@@ -18,16 +18,19 @@ class VendingMachineStock {
     }
 
     fun isInStock(item: String): Boolean {
-        if (item in stock.keys)
+        if (item in stock.keys) {
             return true
+        }
         return false
     }
 
     fun updateVendingMachine(item: String, buyerMoney: Int): Int {
-        if (stock[item] == 0)
+        if (stock[item] == 0) {
             return -1
-        if (price[item]!! > buyerMoney)
+        }
+        if (price[item]!! > buyerMoney) {
             return -1
+        }
         stock[item] = stock[item]!! - 1
         stockCount -= 1
         return price[item]!!

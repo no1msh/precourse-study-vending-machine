@@ -29,5 +29,4 @@ class InputView {
         exceptions.validateItemInput(input, stock)
         return input
     }
-
 }

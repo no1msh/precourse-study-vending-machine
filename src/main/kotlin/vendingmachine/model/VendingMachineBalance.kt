@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.Randoms.pickNumberInList
 import java.lang.StringBuilder
 
 class VendingMachineBalance {
+    private val stringBuilder = StringBuilder()
+
     private var balance = mutableMapOf(
         Coin.COIN_500.amount() to 0,
         Coin.COIN_100.amount() to 0,
@@ -23,10 +25,10 @@ class VendingMachineBalance {
     }
 
     fun getBalance(isResult: Boolean): StringBuilder {
-        val stringBuilder = StringBuilder()
         for (elem in balance) {
-            if (isResult && elem.value == 0)
+            if (isResult && elem.value == 0) {
                 continue
+            }
             stringBuilder.append(elem.key)
             stringBuilder.append("원 - ")
             stringBuilder.append(elem.value)

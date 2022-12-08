@@ -10,7 +10,7 @@ class Buyer {
 
     fun getGoods(stock: VendingMachineStock) {
         buyerMoney = view.requestMoney(false)
-        while(isAvailablePurchase(stock, buyerMoney)) {
+        while (isAvailablePurchase(stock, buyerMoney)) {
             val item = view.requestGoodsName(buyerMoney, stock)
             val price = stock.updateVendingMachine(item, buyerMoney)
             if (price == -1) {

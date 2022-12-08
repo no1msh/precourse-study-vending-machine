@@ -22,7 +22,7 @@ class Exceptions {
     }
 
     fun validateItemInput(input: String, stock: VendingMachineStock) {
-        require(stock.isInStock(input)) {throw IllegalArgumentException(ERROR_MESSAGE + WRONG_ITEM_INPUT_MESSAGE)}
+        require(stock.isInStock(input)) { throw IllegalArgumentException(ERROR_MESSAGE + WRONG_ITEM_INPUT_MESSAGE) }
     }
 
     companion object {

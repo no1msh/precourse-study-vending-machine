@@ -3,10 +3,9 @@ package vendingmachine.view
 import vendingmachine.model.VendingMachineBalance
 
 class OutputView {
-
     fun requestInitialMoney(isAdmin: Boolean) {
         println()
-        if(isAdmin) {
+        if (isAdmin) {
             println(REQUEST_ADMIN_MONEY_MESSAGE)
         }
         if (!isAdmin) {
