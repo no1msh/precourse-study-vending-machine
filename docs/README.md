@@ -21,3 +21,40 @@
    그렇지 않으면 바로 잔돈을 돌려준다.
    - 잔돈은 최소한의 동전 갯수로 반환해야 한다.
    - 잔돈보다 자판기 보유 금액이 적으면, 보유 금액을 모두 반환한다.
+
+
+## 패키지 구조
+
+```
+├── model
+|   ├── data
+|   |   ├── coin
+|   |   |   ├── Coin.kt
+|   |   |   ├── CoinBox.kt
+|   |   |   ├── CoinExchanger.kt
+|   |   |   ├── MutableCoinBox.kt
+|   |   |   └── MutableCoinBoxImpl.kt
+|   |   └── product
+|   |       ├── Product.kt
+|   |       ├── ProductInfo.kt
+|   |       └── ProductMap.kt
+|   ├── random
+|   |   ├── RandomGenerator.kt
+|   |   └── RandomNumberGenerator.kt
+|   └── repository
+|       ├── Result.kt
+|       └── VendingMachineRepository.kt
+├── util
+|   ├── CollectionsExt.kt
+├── view
+|   ├── io
+|   |   ├── InputView.kt
+|   |   └── OutputView.kt
+|   └── strings
+|       ├── ErrorMessage.kt
+|       └── Message.kt
+|   └── VendingMachineView.kt
+├── viewmodel
+|   └── VendingMachineViewModel.kt
+└── Application.kt    
+```
