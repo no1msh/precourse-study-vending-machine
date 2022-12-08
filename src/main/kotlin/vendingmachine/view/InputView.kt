@@ -6,9 +6,9 @@ import vendingmachine.Exceptions
 class InputView {
     private val exceptions = Exceptions()
 
-    fun getAdminMoney(): Int {
+    fun getMoney(): Int {
         val input = readLine()
-        exceptions.validateAdminInput(input)
+        exceptions.validateMoneyInput(input)
         return input.toInt()
     }
 

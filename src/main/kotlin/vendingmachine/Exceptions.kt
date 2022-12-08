@@ -1,7 +1,7 @@
 package vendingmachine
 
 class Exceptions {
-    fun validateAdminInput(input: String) {
+    fun validateMoneyInput(input: String) {
         val money = input.toIntOrNull()
         require(money != null) { throw IllegalArgumentException(ERROR_MESSAGE + WRONG_INPUT_TYPE_MESSAGE) }
         require(money >= 0) { throw IllegalArgumentException(ERROR_MESSAGE + WRONG_INPUT_RANGE_MESSAGE) }

@@ -6,13 +6,13 @@ class View {
     private val outputView = OutputView()
     private val inputView = InputView()
 
-    fun getAdminMoney(): Int {
+    fun requestMoney(): Int {
         outputView.requestInitialMoney()
         return try {
-            inputView.getAdminMoney()
+            inputView.getMoney()
         } catch (e: IllegalArgumentException) {
             outputView.printErrorMessage(e)
-            getAdminMoney()
+            requestMoney()
         }
     }
 
