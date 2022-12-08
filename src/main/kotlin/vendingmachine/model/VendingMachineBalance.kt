@@ -1,10 +1,12 @@
 package vendingmachine.model
 
 import camp.nextstep.edu.missionutils.Randoms.pickNumberInList
+import kotlin.math.min
 import java.lang.StringBuilder
 
 class VendingMachineBalance {
     private val stringBuilder = StringBuilder()
+    private val coins = listOf(Coin.COIN_500.amount(), Coin.COIN_100.amount(), Coin.COIN_50.amount())
 
     private var balance = mutableMapOf(
         Coin.COIN_500.amount() to 0,
@@ -15,7 +17,6 @@ class VendingMachineBalance {
 
     fun putAdminMoney(adminMoney: Int) {
         var money = adminMoney
-        val coins = listOf(Coin.COIN_500.amount(), Coin.COIN_100.amount(), Coin.COIN_50.amount())
         for (coin in coins) {
             var counts = (0..money / coin).toList()
             balance[coin] = pickNumberInList(counts)
@@ -35,5 +36,15 @@ class VendingMachineBalance {
             stringBuilder.append("개\n")
         }
         return stringBuilder
+    }
+
+    fun updateBalance(buyerMoney: Int) {
+        var money = buyerMoney
+        for (coin in coins) {
+            if (coin >= money) {
+                balance[coin] = balance[coin]!! - min(balance[coin]!!, money/coin)
+                money -= (balance[coin]!! * coin)
+            }
+        }
     }
 }

@@ -23,6 +23,7 @@ class Buyer {
     }
 
     fun getRemaining(balance: VendingMachineBalance) {
+        balance.updateBalance(buyerMoney)
         view.printRemainMoney(buyerMoney)
         view.printVendingMachineBalance(balance, true)
     }

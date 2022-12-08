@@ -15,6 +15,6 @@ class VendingMachine {
         admin.putMoney(balance)
         admin.putGoods(stock)
         buyer.getGoods(stock)
-        buyer.getBalance(balance)
+        buyer.getRemaining(balance)
     }
 }
