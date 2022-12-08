@@ -1,5 +1,7 @@
 package vendingmachine.domain
 
+import vendingmachine.view.View
+
 class VendingCalculator {
 
     fun getMinValue(items: List<List<String>>): Int {
@@ -28,6 +30,14 @@ class VendingCalculator {
         if (coins[3] != 0)
             str.appendLine("10원 - ${coins[3]}개")
         return str.toString()
+    }
+
+    fun canIBuy(money: Int, price: Int): Boolean {
+        if (price > money) {
+            View().canNotBuy()
+            return false
+        }
+        return true
     }
 
 }

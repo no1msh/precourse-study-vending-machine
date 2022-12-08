@@ -37,13 +37,10 @@ class VendingManager {
         while (minvalue < money) {
             View().moneyNow(money)
             val buyResult = View().doShopping(items)
-            val buy = buyResult.first
-            if (buy > money) {
-                View().canNotBuy()
-                continue
+            if (VendingCalculator().canIBuy(money, buyResult.first)) {
+                money -= buyResult.first
+                items[buyResult.second][2] = (items[buyResult.second][2].toInt() - 1).toString()
             }
-            money -= buy
-            items[buyResult.second][2] = (items[buyResult.second][2].toInt() - 1).toString()
         }
     }
 
