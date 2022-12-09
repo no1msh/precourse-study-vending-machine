@@ -9,10 +9,14 @@ object VendingMachineController {
 
     fun startVendingMachine(){
         initVendingMachine()
+        printVendingMachinesMoney()
     }
 
     private fun initVendingMachine(){
         vendingMachine = VendingMachine(View.getVendingMachineMoney())
     }
 
+    private fun printVendingMachinesMoney(){
+        View.printVendingMachineHaveCoins(vendingMachine.getHaveCoins())
+    }
 }
