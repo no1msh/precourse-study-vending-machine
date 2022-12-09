@@ -6,5 +6,21 @@ enum class Coin(private val amount: Int) {
     COIN_50(50),
     COIN_10(10);
 
-    // 추가 기능 구현
+    override fun toString(): String {
+        return "${amount}원"
+    }
+
+    fun getAmount() = amount
+
+    companion object{
+        fun getCoins(): List<Int> {
+            return listOf(
+                COIN_500.amount,
+                COIN_100.amount,
+                COIN_50.amount,
+                COIN_10.amount,
+            )
+        }
+    }
+
 }
