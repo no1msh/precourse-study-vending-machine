@@ -6,13 +6,9 @@ enum class Coin(private val amount: Int) {
     COIN_50(50),
     COIN_10(10);
 
-    override fun toString(): String {
-        return "${amount}원"
-    }
-
     fun getAmount() = amount
 
-    companion object{
+    companion object {
         fun getCoins(): List<Int> {
             return listOf(
                 COIN_500.amount,
@@ -20,6 +16,14 @@ enum class Coin(private val amount: Int) {
                 COIN_50.amount,
                 COIN_10.amount,
             )
+        }
+
+        fun getEnumCoin(amount: Int) = when (amount) {
+            500 -> COIN_500
+            100 -> COIN_100
+            50 -> COIN_50
+            10 -> COIN_10
+            else -> throw IllegalArgumentException()
         }
     }
 

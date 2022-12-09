@@ -5,14 +5,14 @@ import vendingmachine.Coin
 
 class VendingMachine(private var totalMoney: Int) {
 
-    private val haveCoins = mutableMapOf<Int, Int>()
+    private val haveCoins = mutableMapOf<Coin, Int>()
 
     init {
-        haveCoins[500] = 0
-        haveCoins[100] = 0
-        haveCoins[50] = 0
-        haveCoins[10] = 0
-        createRandomCoins()
+        haveCoins[Coin.COIN_500] = 0
+        haveCoins[Coin.COIN_100] = 0
+        haveCoins[Coin.COIN_50] = 0
+        haveCoins[Coin.COIN_10] = 0
+        initHaveCoins()
     }
 
     fun getHaveCoins() = haveCoins.toMap()
@@ -20,20 +20,24 @@ class VendingMachine(private var totalMoney: Int) {
     fun getTotalCoinAmount(): Int {
         var total = 0
         for (coin in haveCoins.keys) {
-            total += coin * haveCoins[coin]!!
+            total += coin.getAmount() * haveCoins[coin]!!
         }
         return total
     }
 
-    private fun createRandomCoins() {
+    private fun initHaveCoins() {
         var tempTotal = totalMoney
-        val coins = Coin.getCoins()
         while (tempTotal != 0) {
-            val randomCoin = Randoms.pickNumberInList(coins)
+            val randomCoin = createRandomCoin()
             if (randomCoin <= tempTotal) {
                 tempTotal -= randomCoin
-                this.haveCoins[randomCoin] = this.haveCoins[randomCoin]!! + 1
+                this.haveCoins[Coin.getEnumCoin(randomCoin)] = this.haveCoins[Coin.getEnumCoin(randomCoin)]!! + 1
             }
         }
+    }
+
+    private fun createRandomCoin(): Int {
+        val coins = Coin.getCoins()
+        return Randoms.pickNumberInList(coins)
     }
 }
