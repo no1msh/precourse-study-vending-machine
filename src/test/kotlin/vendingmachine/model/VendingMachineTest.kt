@@ -1,6 +1,7 @@
 package vendingmachine.model
 
 import org.assertj.core.api.Assertions.assertThat
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
@@ -9,9 +10,16 @@ import org.junit.jupiter.params.provider.CsvSource
 
 class VendingMachineTest {
 
+    private lateinit var vendingMachine : VendingMachine
+
+    @BeforeEach
+    fun setUp(){
+        vendingMachine = VendingMachine(420)
+    }
+
     @Test
-    fun `자판기가 가진 동전의 합이 입력한 금액과 같은가?`(total: Int) {
-//        assertThat().isEqualTo(total)
+    fun `자판기가 가진 동전의 합이 입력한 금액과 같은가?`() {
+        assertThat(vendingMachine.getTotalCoinAmount()).isEqualTo(420)
     }
 
     @Test
