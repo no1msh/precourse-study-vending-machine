@@ -1,5 +1,7 @@
 package vendingmachine
 
+import vendingmachine.Controller.VendingMachine
+
 fun main() {
-    TODO("프로그램 구현")
+    VendingMachine().run()
 }
