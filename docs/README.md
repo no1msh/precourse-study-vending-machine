@@ -26,35 +26,45 @@
 ## 패키지 구조
 
 ```
-├── model
-|   ├── data
-|   |   ├── coin
-|   |   |   ├── Coin.kt
-|   |   |   ├── CoinBox.kt
-|   |   |   ├── CoinExchanger.kt
-|   |   |   ├── MutableCoinBox.kt
-|   |   |   └── MutableCoinBoxImpl.kt
-|   |   └── product
-|   |       ├── Product.kt
-|   |       ├── ProductInfo.kt
-|   |       └── ProductMap.kt
-|   ├── random
-|   |   ├── RandomGenerator.kt
-|   |   └── RandomNumberGenerator.kt
-|   └── repository
-|       ├── Result.kt
-|       └── VendingMachineRepository.kt
-├── util
-|   ├── CollectionsExt.kt
-├── view
-|   ├── io
-|   |   ├── InputView.kt
-|   |   └── OutputView.kt
-|   └── strings
-|       ├── ErrorMessage.kt
-|       └── Message.kt
-|   └── VendingMachineView.kt
-├── viewmodel
-|   └── VendingMachineViewModel.kt
-└── Application.kt    
+(vendingmachine)
+├── (model)
+│   ├── (data)
+│   │   ├── (coin)
+│   │   │   ├── Coin.kt
+│   │   │   ├── CoinBox.kt
+│   │   │   ├── CoinExchanger.kt
+│   │   │   ├── MutableCoinBox.kt
+│   │   │   └── MutableCoinBoxImpl.kt
+│   │   │   
+│   │   └── (product)
+│   │       ├── Product.kt
+│   │       ├── ProductInfo.kt
+│   │       └── ProductMap.kt
+│   │       
+│   ├── (random)
+│   │   ├── RandomGenerator.kt
+│   │   └── RandomNumberGenerator.kt
+│   │   
+│   └── (repository)
+│       ├── Result.kt
+│       └── VendingMachineRepository.kt
+│       
+├── (util)
+│   └── CollectionsExt.kt
+│   
+├── (view)
+│   ├── (io)
+│   │   ├── InputView.kt
+│   │   └── OutputView.kt
+│   │   
+│   ├── (strings)
+│   │   ├── ErrorMessage.kt
+│   │   └── Message.kt
+│   │   
+│   └── VendingMachineView.kt
+│   
+├── (viewmodel)
+│   └── VendingMachineViewModel.kt
+│   
+└── Application.kt 
 ```
