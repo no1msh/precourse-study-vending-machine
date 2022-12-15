@@ -1,12 +1,10 @@
 package vendingmachine.view
 
-import org.assertj.core.api.Assertions
-import org.junit.jupiter.api.Test
 import camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest
 import camp.nextstep.edu.missionutils.test.NsTest
-import org.junit.jupiter.api.BeforeEach
+import org.assertj.core.api.Assertions
+import org.junit.jupiter.api.Test
 import vendingmachine.Coin
-import vendingmachine.controller.VendingMachineController
 import vendingmachine.main
 
 class OutputViewTest : NsTest() {

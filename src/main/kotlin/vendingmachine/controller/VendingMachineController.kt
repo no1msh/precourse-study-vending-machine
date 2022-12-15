@@ -1,11 +1,13 @@
 package vendingmachine.controller
 
 import vendingmachine.model.VendingMachine
+import vendingmachine.model.VendingMachineProduct
 import vendingmachine.view.View
 
 object VendingMachineController {
 
-    lateinit var vendingMachine: VendingMachine
+    lateinit var vendingMachineCoin: VendingMachine
+    lateinit var vendingMachineProduct: VendingMachineProduct
 
     fun startVendingMachine(){
         initVendingMachine()
@@ -13,10 +15,11 @@ object VendingMachineController {
     }
 
     private fun initVendingMachine(){
-        vendingMachine = VendingMachine(View.getVendingMachineMoney())
+        vendingMachineCoin = VendingMachine(View.getVendingMachineMoney())
+        vendingMachineProduct = VendingMachineProduct(View.getVendingMachineProduct())
     }
 
     private fun printVendingMachinesMoney(){
-        View.printVendingMachineHaveCoins(vendingMachine.getHaveCoins())
+        View.printVendingMachineHaveCoins(vendingMachineCoin.getHaveCoins())
     }
 }

@@ -14,4 +14,15 @@ object InputView {
         }
         return money
     }
+
+    fun inputVendingMachineProduct() :String{
+        val product = Console.readLine()
+        try {
+            ValidateUserInput.validateInputProductForm(product)
+        } catch (e : IllegalArgumentException) {
+            println(e.message)
+            return inputVendingMachineProduct()
+        }
+        return product
+    }
 }

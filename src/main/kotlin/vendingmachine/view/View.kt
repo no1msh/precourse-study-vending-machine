@@ -13,4 +13,9 @@ object View {
         UI.printVendingMachineCoins()
         OutputView.printVendingMachineCoins(haveCoins)
     }
+
+    fun getVendingMachineProduct(): String {
+        UI.printRequestInputProduct()
+        return InputView.inputVendingMachineProduct()
+    }
 }
