@@ -22,18 +22,10 @@ class OutputViewTest : NsTest() {
     }
 
     @Test
-    fun `투입 금액을 제대로 출력하는가?`(inputMoney: String) {
-//        OutputView.printInputMoney()
+    fun `투입 금액을 제대로 출력하는가?`() {
+        OutputView.printRemainInputMoney(3000)
         assertSimpleTest {
-            Assertions.assertThat(output()).isEqualTo(inputMoney)
-        }
-    }
-
-    @Test
-    fun `반환할 잔돈을 제대로 출력하는가?`(inputMoney: String) {
-//        OutputView.printChange()
-        assertSimpleTest {
-            Assertions.assertThat(output()).isEqualTo(inputMoney)
+            Assertions.assertThat(output()).isEqualTo("투입 금액: 3000원")
         }
     }
 

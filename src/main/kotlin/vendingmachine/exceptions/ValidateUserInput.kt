@@ -5,6 +5,7 @@ object ValidateUserInput {
 
     fun validateInputOnlyNumber(input: String) {
         require(input.matches("^\\d*\$".toRegex())) { PREFIX + "숫자로 입력해주세요." }
+        require(input.isNotBlank()) { PREFIX + "빈 값이 들어있습니다." }
     }
 
     fun validateInputProductForm(input: String) {
