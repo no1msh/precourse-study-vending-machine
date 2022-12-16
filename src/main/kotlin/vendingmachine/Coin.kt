@@ -8,6 +8,10 @@ enum class Coin(private val amount: Int) {
 
     fun getAmount() = amount
 
+    override fun toString(): String {
+        return "${this.amount}원"
+    }
+
     companion object {
         fun getCoins(): List<Int> {
             return listOf(

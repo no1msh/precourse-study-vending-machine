@@ -2,6 +2,7 @@ package vendingmachine.model
 
 import camp.nextstep.edu.missionutils.Randoms
 import vendingmachine.Coin
+import kotlin.math.max
 
 class VendingMachine(private var totalMoney: Int) {
 
@@ -35,6 +36,29 @@ class VendingMachine(private var totalMoney: Int) {
             }
         }
     }
+
+    fun getChangeCoins(remain: Int): Map<Coin, Int> {
+        var remainMoney = remain
+        val changeCoins = mutableMapOf<Coin, Int>()
+        for (coin in Coin.values()) {
+            if (remainMoney / coin.getAmount() > 0) {
+                val count = getMinimumCount(coin, remainMoney)
+                remainMoney -= count * coin.getAmount()
+                changeCoins[coin] = count
+            }
+        }
+        return changeCoins.toMap()
+    }
+
+    private fun getMinimumCount(coin: Coin, remain: Int): Int {
+        if (haveCoins[coin]!! > (remain / coin.getAmount())) {
+            return remain / coin.getAmount()
+        }
+        return haveCoins[coin]!!
+
+    }
+
+    fun getCoinCount(coin: Coin) = haveCoins[coin]!!
 
     private fun createRandomCoin(): Int {
         val coins = Coin.getCoins()

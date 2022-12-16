@@ -2,12 +2,22 @@ package vendingmachine.model
 
 import vendingmachine.exceptions.ValidateUserInput
 
-class Quantity(private val quantity: String) {
+class Quantity(inputtedQuantity: String) {
+
+    private var quantity: Int = 0
+
     init {
-        ValidateUserInput.validateInputOnlyNumber(quantity)
+        ValidateUserInput.validateInputOnlyNumber(inputtedQuantity)
+        quantity = inputtedQuantity.toInt()
     }
 
-    fun getQuantity() = quantity.toInt()
+    fun getQuantity() = quantity
+
+    fun purchase() {
+        quantity -= 1
+    }
+
+    fun canPurchase(): Boolean = quantity >= 1
 
     companion object {
         private const val PREFIX = "[ERROR] "

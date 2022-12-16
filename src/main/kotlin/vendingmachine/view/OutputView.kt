@@ -11,4 +11,8 @@ object OutputView {
         vendingMachineCoins.append("10원 - ${haveCoins[Coin.COIN_10]}개")
         println(vendingMachineCoins.toString())
     }
+
+    fun printRemainInputMoney(inputMoney: Int) {
+        println("투입 금액: ${inputMoney}원")
+    }
 }
